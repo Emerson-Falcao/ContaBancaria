@@ -41,6 +41,67 @@ main {
     width: 80%;
     background-color: #ffffff;
     padding: 2%;
+    align-items: center;
+}
+
+h1{
+    background: rgb(106,4,15);
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    padding: 2%;
+    margin: 0%;
+    width: 95%;
+}
+
+.form{
+    display:flex;
+    flex-direction: column;
+    align-items: left;
+    width: 70%;
+}
+
+label,input,p{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+}
+
+label{
+   margin-top: 2%;
+   margin-bottom: 1%;
+}
+
+input{
+    padding: 1%;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+
+.btnCad, .btnLimpar{
+    margin-top: 5%;
+    margin-bottom: 5%;
+    padding: 2%;
+    width: 45%;
+    color: white;
+}
+
+.btnCad{
+    background-color: rgba(106,4,15,1);
+}
+
+.btnCad:hover{
+    background-color: rgba(208,0,0,1);
+}
+
+.btnLimpar{
+    background-color: rgba(208,0,0,1);
+}
+
+.btnLimpar:hover{
+    background-color: rgba(106,4,15,1);
 }
 
 footer {
