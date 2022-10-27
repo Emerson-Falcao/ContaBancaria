@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Scutum - Conta Bancária</title>
-    <script src="./app.js" type="module" defer></script>
+    <script src="./js/main.js" defer type="module"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,6 +14,24 @@
         <img src="imagens/shield.png" alt="icon">
     </header>
     <main>
+        <h1>CADASTRO</h1>
+        <form class="form" id="form">
+            <label for="name">Nome:</label>
+            <input type="text" name="name" id="name" placeholder="Nome Completo">
+            <label for="cpf">CPF:</label>
+            <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00">
+            <label for="tel">Telefone:</label>
+            <input type="tel" name="tel" id="tel" placeholder="(00)00000-0000">
+            <label for="password">Senha:</label>
+            <input type="password" name="password" id="password"> 
+            <label for="passConf">Confirmar Senha:</label>
+            <input type="password" name="passConf" id="passConf">
+            <div class="buttons"> 
+                <input type="button" class="btnCad" id="btnCad" value="Cadastrar">
+                <input type="reset" class="btnLimpar" value="Limpar">
+            </div>
+            <div class="alert" id="alert"></div>
+        </form>
     </main>
     <footer>
         <p class="footerP">Banco Scutum, 2022 </br>
