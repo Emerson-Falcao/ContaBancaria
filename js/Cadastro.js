@@ -10,7 +10,7 @@ export class Cadastro{
         if(!erros){
             let nrConta = Math.floor(1000 + Math.random() * 90000)
             this.contas.push(new Conta(inputs['name'].value,inputs['cpf'].value,inputs['tel'].value,inputs['password'].value,nrConta,0))
-            console.log(this.contas[0])
+            document.getElementById('alert').innerHTML = `<p>Olá ${inputs['name'].value}! </br>Criada conta de número ${nrConta}</p>`
         }
     }
     

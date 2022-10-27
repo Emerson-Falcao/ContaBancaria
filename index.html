@@ -15,23 +15,23 @@
     </header>
     <main>
         <h1>CADASTRO</h1>
-        <section class="form" id="form">
+        <form class="form" id="form">
             <label for="name">Nome:</label>
-            <input type="text" name="name" id="name">
+            <input type="text" name="name" id="name" placeholder="Nome Completo">
             <label for="cpf">CPF:</label>
-            <input type="text" name="cpf" id="cpf">
+            <input type="text" name="cpf" id="cpf" placeholder="000.000.000-00">
             <label for="tel">Telefone:</label>
-            <input type="tel" name="tel" id="tel">
+            <input type="tel" name="tel" id="tel" placeholder="(00)00000-0000">
             <label for="password">Senha:</label>
             <input type="password" name="password" id="password"> 
             <label for="passConf">Confirmar Senha:</label>
             <input type="password" name="passConf" id="passConf">
             <div class="buttons"> 
                 <input type="button" class="btnCad" id="btnCad" value="Cadastrar">
-                <input type="button" class="btnLimpar" value="Limpar">
+                <input type="reset" class="btnLimpar" value="Limpar">
             </div>
             <div class="alert" id="alert"></div>
-        </section>
+        </form>
     </main>
     <footer>
         <p class="footerP">Banco Scutum, 2022 </br>
