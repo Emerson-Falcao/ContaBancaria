@@ -104,6 +104,10 @@ input{
     background-color: rgba(106,4,15,1);
 }
 
+.alert{
+    color: rgba(208,0,0,1);
+}
+
 footer {
     margin: auto;
     margin-bottom: 1%;
