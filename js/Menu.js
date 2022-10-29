@@ -1,8 +1,9 @@
 import { Operacoes} from "./Operacoes.js"
 
 export class Menu{
-    constructor(){
 
+    constructor(contas){
+        this.contas = contas
     }
     
     criarMenu(){
@@ -14,6 +15,7 @@ export class Menu{
         document.getElementsByTagName('main')[0].innerHTML = menu
         document.getElementById('menuCad').onclick = this.onClickCadastro
         document.getElementById('menuOpe').onclick = this.onClickOperacoes
+        document.getElementById('menuOpe').contas = this.contas
     }
     
     criarOpcao(texto){
@@ -48,7 +50,7 @@ export class Menu{
     }
 
     onClickOperacoes(){
-        let operacoes = new Operacoes()
+        let operacoes = new Operacoes(document.getElementById('menuOpe').contas)
         operacoes.createOperacoes()
     }
 

@@ -2,15 +2,14 @@ import {Conta} from './Conta.js'
 
 export class Cadastro{
     
-    contas = []
-    
     cadastrar(){
         const inputs = document.getElementsByTagName('input')
         let erros = this.validarCampos(inputs)
         if(!erros){
             let nrConta = Math.floor(1000 + Math.random() * 90000)
-            this.contas.push(new Conta(inputs['name'].value,inputs['cpf'].value,inputs['tel'].value,inputs['password'].value,nrConta,0))
+            let conta = new Conta(inputs['name'].value,inputs['cpf'].value,inputs['tel'].value,inputs['password'].value,nrConta,0)
             document.getElementById('alert').innerHTML = `<p>Olá ${inputs['name'].value}! </br>Criada conta de número ${nrConta}</p>`
+            return conta
         }
     }
     

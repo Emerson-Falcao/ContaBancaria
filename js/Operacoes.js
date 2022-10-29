@@ -1,16 +1,40 @@
 export class Operacoes{
-    constructor(){
-
+    constructor(contas){    
+        this.contas = contas
     }
 
     createOperacoes(){
         let radios = this.createRadios()
         let inputs = this.createInputs()
-        let opcoes = radios+inputs
-        document.getElementsByTagName('main')[0].innerHTML = opcoes
+        let buttons = this.createButtons()
+        let opcoes = radios+inputs+buttons
+        document.getElementsByTagName('main')[0].innerHTML = `<form class="form" id="form">${opcoes}</form>`
         document.getElementById('Deposito').addEventListener('change', this.validarCampo)
         document.getElementById('Saque').addEventListener('change', this.validarCampo)
         document.getElementById('Saldo').addEventListener('change', this.validarCampo)
+        document.getElementById('btnCad').addEventListener('click',this.validarOperacao)
+        document.getElementById('btnCad').contas = this.contas
+    }
+
+    validarOperacao(event){
+        let contas = event.currentTarget.contas
+        let nrConta = document.getElementById('Conta').value
+        let senha = document.getElementById('Senha').value
+        let conta = contas.find((c) => c.conta == nrConta)
+        if(conta && conta.senha === senha){
+            if(document.getElementById('Saque').checked){
+                this.realizarSaque()
+            }
+            if(document.getElementById('Deposito').checked){
+                this.realizarDeposito()
+            }
+            if(document.getElementById('Saldo').checked){
+                this.consultarSaldo()
+            }
+        }else{
+            alert('Dados Incorretos')
+        }
+
     }
 
     validarCampo(event){
@@ -19,6 +43,24 @@ export class Operacoes{
         }else{
             document.getElementById('Valor').disabled = false
         }
+    }
+
+    createButtons(){
+        let divButtons = document.createElement('div')
+        divButtons.classList = 'buttons'
+        let buttonConfirm = document.createElement('input')
+        buttonConfirm.type = 'button'
+        buttonConfirm.value = 'Confirma'
+        buttonConfirm.classList = 'btnCad'
+        buttonConfirm.id = 'btnCad'
+        let buttonLimpar = document.createElement('input')
+        buttonLimpar.type = 'reset'
+        buttonLimpar.value = 'Limpar'
+        buttonLimpar.classList = 'btnLimpar'
+        divButtons.appendChild(buttonConfirm)
+        divButtons.appendChild(buttonLimpar)
+
+        return divButtons.outerHTML
     }
 
     createRadios(){
@@ -72,6 +114,18 @@ export class Operacoes{
         div.classList = 'divOrnamento'
         opcaoMenu.appendChild(div)
         return opcaoMenu
+    }
+
+    realizarSaque(){
+        alert('Saque')
+    }
+
+    realizarDeposito(){
+
+    }
+
+    consultarSaldo(){
+
     }
 
 }
