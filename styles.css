@@ -44,6 +44,36 @@ main {
     align-items: center;
 }
 
+.divOpcao{
+    width:82%;
+    border: 1px solid black;
+    margin:1%;
+}
+
+.divOpcao:hover{
+    background-color: #ffdab9;
+}
+
+.divOrnamento{
+    background: rgb(106,4,15);
+    background: linear-gradient(90deg, rgba(106,4,15,1) 0%, rgba(157,2,8,1) 35%, rgba(208,0,0,1) 100%);
+    width: 90%;
+    padding: 1%;
+}
+
+.opcaoRadio{
+    margin:2%;
+}
+
+.divInput{
+    width:80%;
+    margin: 1%;
+}
+
+.inputOpe{
+    width:100%;
+}
+
 h1{
     background: rgb(106,4,15);
     color: white;
