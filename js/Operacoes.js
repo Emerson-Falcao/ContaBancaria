@@ -20,6 +20,7 @@ export class Operacoes{
     validarOperacao(event){
         let self = event.currentTarget.self
         let contas = event.currentTarget.contas
+        let valor = document.getElementById('Valor').value
         let nrConta = document.getElementById('Conta').value
         let senha = document.getElementById('Senha').value
         let conta = contas.find((c) => c.conta == nrConta)
@@ -28,7 +29,10 @@ export class Operacoes{
                 self.realizarSaque()
             }
             if(document.getElementById('Deposito').checked){
-                self.realizarDeposito()
+                let i = contas.indexOf(conta)
+                conta = self.realizarDeposito(conta, valor)
+                contas.splice(i,1,conta)
+                event.currentTarget.contas = contas
             }
             if(document.getElementById('Saldo').checked){
                 self.consultarSaldo(conta)
@@ -123,8 +127,14 @@ export class Operacoes{
         alert('Saque')
     }
 
-    realizarDeposito(){
-
+    realizarDeposito(conta, valor){
+        if(valor<=0){
+            alert('Digite um valor valido')
+        }else{
+            conta.saldo += parseInt(valor)
+            alert(`Deposito realizado \nNovo saldo: ${conta.saldo}`)
+            return conta
+        }    
     }
 
     consultarSaldo(conta){
