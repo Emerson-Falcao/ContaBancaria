@@ -26,7 +26,7 @@ export class Operacoes{
         let conta = contas.find((c) => c.conta == nrConta)
         if(conta && conta.senha === senha){
             if(document.getElementById('Saque').checked){
-                self.realizarSaque()
+                self.realizarSaque(conta, valor)
             }
             if(document.getElementById('Deposito').checked){
                 let i = contas.indexOf(conta)
@@ -123,8 +123,14 @@ export class Operacoes{
         return opcaoMenu
     }
 
-    realizarSaque(){
-        alert('Saque')
+    realizarSaque(conta, valor){
+        if(valor<=0 || valor>conta.saldo){
+            alert(`Saque não realizado\nDigite um valor valido\nSaldo atual: ${conta.saldo}`)
+        }else{
+            conta.saldo -= parseInt(valor)
+            alert(`Saque realizado \nNovo saldo: ${conta.saldo}`)
+            return conta
+        } 
     }
 
     realizarDeposito(conta, valor){
