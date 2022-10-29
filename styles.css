@@ -45,7 +45,7 @@ main {
 }
 
 .divOpcao{
-    width:80%;
+    width:82%;
     border: 1px solid black;
     margin:1%;
 }
@@ -69,6 +69,11 @@ main {
     width:80%;
     margin: 1%;
 }
+
+.inputOpe{
+    width:100%;
+}
+
 h1{
     background: rgb(106,4,15);
     color: white;

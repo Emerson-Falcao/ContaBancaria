@@ -14,22 +14,24 @@ export class Operacoes{
         document.getElementById('Saldo').addEventListener('change', this.validarCampo)
         document.getElementById('btnCad').addEventListener('click',this.validarOperacao)
         document.getElementById('btnCad').contas = this.contas
+        document.getElementById('btnCad').self = this
     }
 
     validarOperacao(event){
+        let self = event.currentTarget.self
         let contas = event.currentTarget.contas
         let nrConta = document.getElementById('Conta').value
         let senha = document.getElementById('Senha').value
         let conta = contas.find((c) => c.conta == nrConta)
         if(conta && conta.senha === senha){
             if(document.getElementById('Saque').checked){
-                this.realizarSaque()
+                self.realizarSaque()
             }
             if(document.getElementById('Deposito').checked){
-                this.realizarDeposito()
+                self.realizarDeposito()
             }
             if(document.getElementById('Saldo').checked){
-                this.consultarSaldo()
+                self.consultarSaldo(conta)
             }
         }else{
             alert('Dados Incorretos')
@@ -83,6 +85,7 @@ export class Operacoes{
         let input = document.createElement('input')
         input.setAttribute('type',type)
         input.id = texto
+        input.classList = 'inputOpe'
         let label = document.createElement('label')
         label.setAttribute('for',texto)
         label.innerText = texto
@@ -124,8 +127,8 @@ export class Operacoes{
 
     }
 
-    consultarSaldo(){
-
+    consultarSaldo(conta){
+        alert(`Saldo: ${conta.saldo}`)
     }
 
 }
